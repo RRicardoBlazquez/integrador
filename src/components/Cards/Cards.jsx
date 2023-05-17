@@ -15,12 +15,12 @@ export default function Cards(props) {
             gender={personaje.gender}
             origin={personaje.origin.name}
             image={personaje.image}
-            onClose={() => window.alert("Emulamos que se cierra la card")}
+            onClose={() => props.onClose(personaje.id)}
           />
         }
       </li>
     );
   });
 
-  return <ul>{listaPersonajes}</ul>;
+  return <div className={style.container}>{listaPersonajes}</div>;
 }

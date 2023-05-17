@@ -1,4 +1,8 @@
 .App {
-  text-align: center;
-  background-color: rgb(151, 202, 202);
+  min-height: 100vh;
+  background-image: url("./img/rick-and-morty-monster.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
 }
