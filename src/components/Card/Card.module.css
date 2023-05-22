@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  background-color: aliceblue;
+  background-color: rgba(240, 248, 255, 0.433);
   border-radius: 5%;
   align-items: center;
   justify-content: center;
@@ -18,12 +18,13 @@
 }
 
 .Text {
-  color: rgb(54, 183, 183);
-  text-shadow: 2px 0px 2px rgb(225, 250, 124), 2px 0px 2px yellow;
+  color: rgb(74, 125, 125);
+  -webkit-text-stroke: 2px yellowgreen;
 }
 
 .img {
   display: flex;
   justify-content: center;
   width: 80%;
+  border-radius: 50px;
 }

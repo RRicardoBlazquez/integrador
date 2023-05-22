@@ -1,22 +1,26 @@
 .container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  align-self: center;
 }
 
 .Search {
   display: flex;
   flex-direction: column;
   outline: none;
-  border-radius: 20%;
+  border-radius: 10px;
   box-sizing: border-box;
   height: 40px;
   width: 200px;
   padding: 0 20px;
+  border: 2px solid rgb(89, 254, 229);
 }
 
 .button {
-  border-radius: 20%;
-  color: rgb(11, 25, 25);
+  background-color: rgb(37, 135, 129);
+  color: rgb(242, 249, 249);
+  margin: 1%;
+  border-radius: 10px;
+  width: 80px;
+  height: 40px;
+  border: 2px solid rgb(89, 254, 229);
 }

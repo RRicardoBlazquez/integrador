@@ -1,10 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import { Route } from "react-router-dom";
+import { Routes } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav/Nav";
-import Titulo from "./components/Titulo/Titulo";
-import imagen from "./img/Rick_and_Morty.svg.png";
-import Cards from "./components/Cards/Cards.jsx";
+
+import Cards from "./components/Cards/Cards";
+import About from "./components/About/About";
+import Detail from "./components/Detail/Detail";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -27,9 +30,17 @@ function App() {
   }
   return (
     <div className="App">
-      {<Titulo title={imagen} />}
       <Nav onSearch={onSearch} />
-      <Cards characters={characters} onClose={onClose} />
+      <Routes>
+        <Route
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/detail/:id" element={<Detail />} />
+      </Routes>
     </div>
   );
 }
