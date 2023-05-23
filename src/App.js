@@ -12,9 +12,17 @@ import Detail from "./components/Detail/Detail";
 function App() {
   const [characters, setCharacters] = useState([]);
   const onSearch = (id) => {
+    if (
+      id.length === 0 ||
+      id > 826 ||
+      characters.some((char) => char.id === parseInt(id))
+    ) {
+      return 0;
+    }
+
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
-        if (data.name) {
+        if (data.name && characters.filter(data.id)) {
           setCharacters((oldChars) => [...oldChars, data]);
         } else {
           window.alert("¡No hay personajes con este ID!");
@@ -40,6 +48,8 @@ function App() {
         <Route path="/about" element={<About />} />
 
         <Route path="/detail/:id" element={<Detail />} />
+
+        {/* <Route path="/*" element={} /> */}
       </Routes>
     </div>
   );
