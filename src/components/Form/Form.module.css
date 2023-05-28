@@ -1,0 +1,47 @@
+.danger {
+  color: red;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(44, 93, 115, 0.836);
+  border-radius: 5%;
+  width: auto;
+  border: 2px solid rgb(219, 235, 148);
+}
+
+.title {
+  padding: 5px;
+  display: flex;
+  width: 300px;
+  margin: 5px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 5px;
+}
+
+.button {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  background-color: rgb(37, 135, 129);
+  color: rgb(242, 249, 249);
+  margin: 1%;
+  border-radius: 10px;
+  width: 80px;
+  height: 40px;
+  border: 2px solid rgb(89, 254, 229);
+  font-size: larger;
+  justify-content: space-around;
+}
+
+.etiqueta {
+  color: aliceblue;
+}

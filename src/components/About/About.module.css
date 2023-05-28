@@ -4,21 +4,21 @@
   justify-content: space-around;
   background-color: rgba(12, 54, 51, 0.762);
   border-radius: 5%;
-  margin: 5%;
-  width: 90%;
+  width: auto;
   border: 2px solid rgb(89, 254, 229);
 }
 
 .text {
   color: rgb(54, 93, 93);
   width: 280px;
+  margin: 5px;
   -webkit-text-stroke: 2px yellowgreen;
 }
 
 .img {
-  padding: 5%;
   display: flex;
-  align-self: flex-start;
+  align-self: center;
   border-radius: 5%;
   width: 280px;
+  margin: 5px;
 }

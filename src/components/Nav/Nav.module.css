@@ -1,8 +1,26 @@
 .container {
   display: flex;
+  width: 100%;
   background-color: rgba(48, 47, 51, 0.399);
   flex-flow: row wrap;
-  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  width: 300px;
+}
+
+.navegador {
+  display: flex;
+  align-self: center;
+  width: 300px;
+  justify-content: space-evenly;
+}
+
+.search {
+  display: flex;
+  width: 300px;
 }
 .button {
   background-color: rgb(37, 135, 129);
@@ -13,10 +31,6 @@
   width: 80px;
   margin: 5px;
   font-size: larger;
-}
-.navegador {
-  display: flex;
-  align-self: center;
 }
 
 .linea {

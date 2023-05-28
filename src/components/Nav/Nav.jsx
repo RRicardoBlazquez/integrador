@@ -7,7 +7,9 @@ import imagen from "../../img/Rick_and_Morty.svg.png";
 export default function Nav(props) {
   return (
     <div className={style.container}>
-      <Titulo title={imagen} />
+      <div className={style.title}>
+        <Titulo title={imagen} />
+      </div>
       <div className={style.navegador}>
         <NavLink className={style.nav} to="/home">
           <button className={style.button}>Home</button>
@@ -16,8 +18,9 @@ export default function Nav(props) {
           <button className={style.button}>Abaut</button>
         </NavLink>
       </div>
-      <SearchBar onSearch={props.onSearch} />
-      <hr className={style.linea} />
+      <div className={style.search}>
+        <SearchBar onSearch={props.onSearch} />
+      </div>
     </div>
   );
 }
