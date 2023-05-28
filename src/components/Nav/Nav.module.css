@@ -8,6 +8,7 @@
 
 .title {
   display: flex;
+  align-self: center;
   width: 300px;
 }
 
@@ -20,6 +21,7 @@
 
 .search {
   display: flex;
+  align-self: center;
   width: 300px;
 }
 .button {
