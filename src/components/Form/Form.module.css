@@ -27,9 +27,14 @@
   margin: 5px;
 }
 
+.botones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .button {
   display: flex;
-  align-self: center;
   align-items: center;
   background-color: rgb(37, 135, 129);
   color: rgb(242, 249, 249);

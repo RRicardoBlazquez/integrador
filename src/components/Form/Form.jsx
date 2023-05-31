@@ -42,7 +42,7 @@ export default function Form({ login }) {
           type="text"
           name="email"
           value={userData.email}
-          placeholder="Escribe tu usuario..."
+          placeholder="Enter your email..."
           onChange={handleChange}
         />
         <p className={style.danger}>{errors.email} </p>
@@ -52,22 +52,24 @@ export default function Form({ login }) {
         <input
           type="password"
           name="password"
-          placeholder="Escribe tu contraseña... "
+          placeholder="Enter your password... "
           value={userData.password}
           onChange={handleChange}
         />
         <p className={style.danger}>{errors.password} </p>
-        <button className={style.button} onClick={handleSubmit} type="submit">
-          Submit
-        </button>
-        <button
-          id="2"
-          className={style.button}
-          onClick={handleInvited}
-          type="button"
-        >
-          Invited
-        </button>
+        <div className={style.botones}>
+          <button className={style.button} onClick={handleSubmit} type="submit">
+            Submit
+          </button>
+          <button
+            id="2"
+            className={style.button}
+            onClick={handleInvited}
+            type="button"
+          >
+            Invited
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -7,11 +7,25 @@
   justify-content: center;
   margin: 5% auto;
   width: 280px;
-  border: 2px solid darkblue;
+  border: 2px solid rgb(89, 254, 229);
 }
 
+.botones {
+  display: flex;
+  width: 260px;
+  justify-content: space-between;
+}
+.like {
+  display: flex;
+  align-self: center;
+  background-color: rgba(255, 65, 65, 0);
+  border: none;
+  font-size: 25px;
+}
 .button {
-  align-self: flex-end;
+  display: flex;
+  align-self: center;
+  align-items: center;
   background-color: rgb(255, 65, 65);
   border-radius: 50%;
   color: aliceblue;

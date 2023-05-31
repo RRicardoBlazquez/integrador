@@ -8,12 +8,16 @@ import Cards from "./components/Cards/Cards";
 import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
+import Favorites from "./components/Favorites/Favorites";
+import { useDispatch } from "react-redux";
+import { removeFav } from "./redux/actions";
 
 const EMAIL = "rblazquez111@gmail.com";
 const PASSWORD = "ricardo123";
 
 function App() {
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
   const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
@@ -46,6 +50,7 @@ function App() {
     setCharacters(
       characters.filter((personaje) => personaje.id !== parseInt(id))
     );
+    dispatch(removeFav(id));
   }
   const login = (userData) => {
     if (userData.email === EMAIL && userData.password === PASSWORD) {
@@ -63,9 +68,8 @@ function App() {
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
         />
-
         <Route path="/about" element={<About />} />
-
+        <Route path="/favorites" element={<Favorites onClose={onClose} />} />
         <Route path="/detail/:id" element={<Detail />} />
 
         {/* <Route path="/*" element={} /> */}

@@ -3,7 +3,7 @@
   width: 100%;
   background-color: rgba(48, 47, 51, 0.399);
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .title {
@@ -30,7 +30,7 @@
   border: 2px solid rgb(89, 254, 229);
   border-radius: 5px;
   height: 40px;
-  width: 80px;
+  width: 100px;
   margin: 5px;
   font-size: larger;
 }

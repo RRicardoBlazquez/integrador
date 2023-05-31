@@ -11,12 +11,13 @@ export default function SearchBar(props) {
     <div className={style.container}>
       <input
         className={style.Search}
+        placeholder="Enter your password... "
         value={id}
         onChange={handleChange}
         type="search"
       />
       <button className={style.button} onClick={() => props.onSearch(id)}>
-        Agregar
+        Add
       </button>
     </div>
   );
