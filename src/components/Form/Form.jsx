@@ -41,6 +41,7 @@ export default function Form({ login }) {
         <input
           type="text"
           name="email"
+          id="email"
           value={userData.email}
           placeholder="Enter your email..."
           onChange={handleChange}
@@ -52,6 +53,7 @@ export default function Form({ login }) {
         <input
           type="password"
           name="password"
+          id="password"
           placeholder="Enter your password... "
           value={userData.password}
           onChange={handleChange}

@@ -2,13 +2,13 @@ import { NavLink } from "react-router-dom";
 import style from "./Card.module.css";
 import { useEffect, useState } from "react";
 import { addFav, removeFav } from "../../redux/actions";
-import { connect, useDispatch, useSelector } from "react-redux";
-/* import { FaHeart } from "react-icons/fa"; */
+import { useDispatch, useSelector } from "react-redux";
 
-function Card(props) {
+export default function Card(props) {
   const [isFav, setIsfav] = useState(false);
+  const { allCharacter } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { myFavorites } = useSelector((state) => state);
+
   const handleFavorite = () => {
     if (isFav) {
       setIsfav(false);
@@ -18,13 +18,14 @@ function Card(props) {
       dispatch(addFav(props));
     }
   };
+
   useEffect(() => {
-    myFavorites.forEach((fav) => {
+    allCharacter?.forEach((fav) => {
       if (fav.id === props.id) {
         setIsfav(true);
       }
     });
-  }, [myFavorites]);
+  }, [allCharacter, props.id]);
 
   return (
     <div className={style.container}>
@@ -43,7 +44,7 @@ function Card(props) {
         </button>
       </div>
       <img className={style.img} src={props.image} alt="" />
-      <NavLink to={`/detail/${props.id}`}>
+      <NavLink className={style.nav} to={`/detail/${props.id}`}>
         <h2 className={style.Text}>{props.name}</h2>
       </NavLink>
       {/* <h2 className={style.Text}>status:{props.status}</h2>
@@ -54,19 +55,4 @@ function Card(props) {
   );
 }
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    addFav: (props) => {
-      dispatch(addFav(props));
-    },
-    removeFav: (props) => {
-      dispatch(removeFav(props.id));
-    },
-  };
-}
-
-export function mapStateToProps(state) {
-  return { myFavorites: state.myFavorites };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+/* export default connect(null, null)(Card); */

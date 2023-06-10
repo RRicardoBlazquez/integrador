@@ -6,6 +6,12 @@ export default function SearchBar(props) {
   const handleChange = (event) => {
     setId(event.target.value);
   };
+  const handleKeyUp = (e) => {
+    if (e.keyCode === 13) {
+      setId(e.target.value);
+      props.onSearch(id);
+    }
+  };
 
   return (
     <div className={style.container}>
@@ -15,6 +21,7 @@ export default function SearchBar(props) {
         value={id}
         onChange={handleChange}
         type="search"
+        onKeyUp={handleKeyUp}
       />
       <button className={style.button} onClick={() => props.onSearch(id)}>
         Add

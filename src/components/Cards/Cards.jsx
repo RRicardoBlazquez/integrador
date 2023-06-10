@@ -1,9 +1,10 @@
+import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 import style from "./Cards.module.css";
 
 export default function Cards(props) {
-  const personajes = props.characters;
-  const listaPersonajes = personajes.map((personaje) => {
+  const { characters } = useSelector((state) => state);
+  const listaPersonajes = characters.map((personaje) => {
     return (
       <li className={style.lista} key={personaje.id}>
         {

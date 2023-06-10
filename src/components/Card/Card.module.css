@@ -42,3 +42,9 @@
   width: 80%;
   border-radius: 50px;
 }
+
+.nav {
+  display: flex;
+  align-self: center;
+  text-decoration: none;
+}

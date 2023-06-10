@@ -8,9 +8,8 @@ export default function About() {
       <div className={style.text}>
         <h1>Desarrollador : Ricardo Blazquez</h1>
         <p>
-          Hola mi nombre es Ricardo Blazquez soy tecnico electromecanico,
-          estudiante de ingenieria electronica, y actualmente un desarrollador
-          web full stack
+          Hola mi nombre es Ricardo Blazquez soy estudiante de ingenieria
+          electronica, y actualmente un desarrollador web full stack.
         </p>
       </div>
     </div>

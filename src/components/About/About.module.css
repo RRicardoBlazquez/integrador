@@ -2,17 +2,17 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
-  background-color: rgba(12, 54, 51, 0.762);
+  background-color: rgba(44, 93, 115, 0.836);
   border-radius: 5%;
   width: auto;
-  border: 2px solid rgb(89, 254, 229);
+  border: 2px solid rgb(219, 235, 148);
 }
 
 .text {
   color: rgb(54, 93, 93);
   width: 280px;
   margin: 5px;
-  -webkit-text-stroke: 2px yellowgreen;
+  -webkit-text-stroke: 1px rgb(219, 235, 148);
 }
 
 .img {

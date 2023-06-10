@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { Route, useLocation, useNavigate } from "react-router-dom";
 import { Routes } from "react-router-dom";
 import "./App.css";
@@ -9,48 +8,35 @@ import About from "./components/About/About";
 import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
-import { useDispatch } from "react-redux";
-import { removeFav } from "./redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteCharacter, getCharacter } from "./redux/actions";
 
 const EMAIL = "rblazquez111@gmail.com";
 const PASSWORD = "ricardo123";
 
 function App() {
+  const { characters } = useSelector((state) => state);
   const { pathname } = useLocation();
   const dispatch = useDispatch();
-  const [characters, setCharacters] = useState([]);
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
+  /* useEffect(() => {
     !access && navigate("/");
-  }, [access, navigate]);
+  }, [access]); */
 
   const onSearch = (id) => {
     if (
       id.length === 0 ||
       id > 826 ||
-      characters.some((char) => char.id === parseInt(id))
-    ) {
+      characters?.some((char) => parseInt(char.id) === parseInt(id))
+    )
       return 0;
-    }
-
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
-      }
-    );
+    dispatch(getCharacter(id));
   };
 
   function onClose(id) {
-    setCharacters(
-      characters.filter((personaje) => personaje.id !== parseInt(id))
-    );
-    dispatch(removeFav(id));
+    dispatch(deleteCharacter(id));
   }
   const login = (userData) => {
     if (userData.email === EMAIL && userData.password === PASSWORD) {
@@ -61,13 +47,10 @@ function App() {
 
   return (
     <div className="App">
-      {pathname !== "/" && <Nav onSearch={onSearch} />}
+      {pathname !== "/" && access && <Nav onSearch={onSearch} />}
       <Routes>
         <Route path="/" element={<Form login={login} />} />
-        <Route
-          path="/home"
-          element={<Cards characters={characters} onClose={onClose} />}
-        />
+        <Route path="/home" element={<Cards onClose={onClose} />} />
         <Route path="/about" element={<About />} />
         <Route path="/favorites" element={<Favorites onClose={onClose} />} />
         <Route path="/detail/:id" element={<Detail />} />
