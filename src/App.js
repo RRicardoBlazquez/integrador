@@ -21,10 +21,6 @@ function App() {
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
-  /* useEffect(() => {
-    !access && navigate("/");
-  }, [access]); */
-
   const onSearch = (id) => {
     if (
       id.length === 0 ||
@@ -62,3 +58,7 @@ function App() {
 }
 
 export default App;
+
+/* useEffect(() => {
+    !access && navigate("/");
+  }, [access]); */
