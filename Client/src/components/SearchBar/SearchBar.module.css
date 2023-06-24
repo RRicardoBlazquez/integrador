@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-self: center;
+  justify-content: flex-end;
+}
+
+.Search {
+  display: flex;
+  outline: none;
+  border-radius: 10px;
+
+  height: 40px;
+  width: 200px;
+  padding: 0 20px;
+  border: 2px solid rgb(89, 254, 229);
+}
+
+.button {
+  background-color: rgb(37, 135, 129);
+  color: rgb(242, 249, 249);
+  margin: 1%;
+  border-radius: 10px;
+  width: 80px;
+  height: 40px;
+  border: 2px solid rgb(89, 254, 229);
+}
