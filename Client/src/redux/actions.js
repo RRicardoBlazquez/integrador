@@ -1,18 +1,29 @@
 import axios from "axios";
-//const url = "http://localhost:3001/rickandmorty/character/";
-const url = "https://rickandmortyapi.com/api/character/";
+const url = "http://localhost:3001/rickandmorty/character/";
+//const url = "https://rickandmortyapi.com/api/character/";
 
 export function addFav(personaje) {
-  return {
-    type: "ADD_FAV",
-    payload: personaje,
+  const endpoint = "http://localhost:3001/rickandmorty/fav";
+  console.log(personaje);
+  return (dispatch) => {
+    axios.post(endpoint, personaje).then(({ data }) => {
+      return dispatch({
+        type: "ADD_FAV",
+        payload: data,
+      });
+    });
   };
 }
 
 export function removeFav(id) {
-  return {
-    type: "REMOVE_FAV",
-    payload: id,
+  const endpoint = "http://localhost:3001/rickandmorty/fav/";
+  return (dispatch) => {
+    axios.delete(`${endpoint}${id}`).then(({ data }) => {
+      return dispatch({
+        type: "REMOVE_FAV",
+        payload: data,
+      });
+    });
   };
 }
 

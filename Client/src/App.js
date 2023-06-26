@@ -9,10 +9,8 @@ import Detail from "./components/Detail/Detail";
 import Form from "./components/Form/Form";
 import Favorites from "./components/Favorites/Favorites";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCharacter, getCharacter } from "./redux/actions";
-
-const EMAIL = "rblazquez111@gmail.com";
-const PASSWORD = "ricardo123";
+import { deleteCharacter, getCharacter, removeFav } from "./redux/actions";
+import axios from "axios";
 
 function App() {
   const { characters } = useSelector((state) => state);
@@ -32,13 +30,18 @@ function App() {
   };
 
   function onClose(id) {
+    dispatch(removeFav(id));
     dispatch(deleteCharacter(id));
   }
+
   const login = (userData) => {
-    if (userData.email === EMAIL && userData.password === PASSWORD) {
-      setAccess(true);
-      navigate("/home");
-    }
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(access);
+      access && navigate("/home");
+    });
   };
 
   return (

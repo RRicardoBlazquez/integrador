@@ -9,18 +9,14 @@ const rootReducer = (state = initialState, action) => {
     case "ADD_FAV":
       return {
         ...state,
-        myFavorites: [...state.allCharacter, action.payload],
-        allCharacter: [...state.allCharacter, action.payload],
+        myFavorites: action.payload,
+        allCharacter: action.payload,
       };
     case "REMOVE_FAV":
       return {
         ...state,
-        myFavorites: state.myFavorites.filter(
-          (personaje) => parseInt(personaje.id) !== parseInt(action.payload)
-        ),
-        allCharacter: state.allCharacter.filter(
-          (personaje) => parseInt(personaje.id) !== parseInt(action.payload)
-        ),
+        myFavorites: action.payload,
+        allCharacter: action.payload,
       };
     case "FILTER":
       let filterByGender = state.allCharacter;
@@ -50,12 +46,6 @@ const rootReducer = (state = initialState, action) => {
     case "DELETE_CHARACTER":
       return {
         ...state,
-        myFavorites: state.myFavorites.filter(
-          (personaje) => parseInt(personaje.id) !== parseInt(action.payload)
-        ),
-        allCharacter: state.allCharacter.filter(
-          (personaje) => parseInt(personaje.id) !== parseInt(action.payload)
-        ),
         characters: state.characters.filter(
           (personaje) => parseInt(personaje.id) !== parseInt(action.payload)
         ),

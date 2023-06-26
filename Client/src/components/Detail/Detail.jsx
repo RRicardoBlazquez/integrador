@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import CardDetail from "../CardDetail/CardDetail";
-const url = "https://rickandmortyapi.com/api/character/";
-//const url = "http://localhost:3001/rickandmorty/character/";
+//const url = "https://rickandmortyapi.com/api/character/";
+const url = "http://localhost:3001/rickandmorty/character/";
 
 export default function Detail() {
   const { id } = useParams();
