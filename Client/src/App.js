@@ -34,14 +34,17 @@ function App() {
     dispatch(deleteCharacter(id));
   }
 
-  const login = (userData) => {
-    const { email, password } = userData;
-    const URL = "http://localhost:3001/rickandmorty/login/";
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+  const login = async (userData) => {
+    try {
+      const { email, password } = userData;
+      const URL = "http://localhost:3001/rickandmorty/login/";
+      const { data } = await axios(
+        URL + `?email=${email}&password=${password}`
+      );
       const { access } = data;
       setAccess(access);
       access && navigate("/home");
-    });
+    } catch (error) {}
   };
 
   return (

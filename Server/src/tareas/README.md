@@ -1,4 +1,4 @@
-# **💪 HW3 | Promises - Integration**
+# **💪 HW6 | Async Await - Integration**
 
 ## **🕒 DURACIÓN ESTIMADA**
 
@@ -16,48 +16,69 @@ XX minutos
 
 ## **📝 INTRODUCCIÓN**
 
-En esta homework crearemos una ruta GET que realizará una peticion asincrónica a la API de Rick & Morty. De esta manera podremos obtener un personaje por **id**, y podremos enviar esta información a nuestro Front-End.
+En esta homework vamos a transformar todas nuestras funciones asincrónicas que utilizan promesas a **`async await`**.
+
+🤓 ¿Preparad@? 🤓
 
 <br />
 
 ---
 
-## **📋 INSTRUCCIONES**
+<div align="center">
 
-### **👩‍💻 EJERCICIO 1 | Controlador**
+## **📋 INSTRUCCIONES 📋**
 
-Instala la librería **`axios`**. Luego dirígete a la carpeta **controllers** y crea un archivo llamado **`getCharById.js`**. Dentro de este archivo deberás:
+</div>
 
-1. Crea y exporta una función llamada **`getCharById`**. Esta recibirá dos parámetros: **res** y **id**.
+## **🚀 PARTE 1 | Server 🚀**
 
-2. Dentro de esta función deberás realizar una petición a la API **`https://rickandmortyapi.com/api/character/:id`** de Rick & Morty. Utiliza promesas y no olvides que el **id** que utilices debe ser el que recibes por parámetro.
+<br />
 
-> **[NOTA]:** tendrás que importar **`axios`**.
+### **👩‍💻 EJERCICIO 1 | GET getCharById**
 
-3. Una vez que tienes la respuesta de tu petición crea un objeto en el que guardes las siguientes propiedades del personaje: **id** (lo recibes por parámetro), **name**, **gender**, **species**, **origin**, **image** y **status**.
+Dirígete a tu carpeta **`controllers`** y modifica la función **`getCharById`** de modo tal que utilices **async/await** y no promesas.
 
-> [**NOTA**]: revisa cómo es la estructura de la respuesta que recibes de la API para poder acceder correctamente a los datos.
-
-4. Una vez creado el objeto, devuelve una respuesta en formato JSON y status igual a 200 con el personaje que obtuviste.
-
-5. Concatena un **`.catch`** al final de la promesa para poder manejar el error. Dentro de él deberás devolver una respuesta con status **`500`**, un Content-Type igual a **`text/plain`**, y finalmente responder con la propiedad **`message`** del error.
+2. Para manejar correctamente el error envuelve el contenido de esta función en un **try-catch**.
 
 <br />
 
 ---
 
-### **👩‍💻 EJERCICIO 2 | Ruta**
+## **🚀 PARTE 2 | Client 🚀**
 
-Dirígete al archivo **`index.js`** y elimina el condicional que creaste en la homework anterior. También elimina la importación y el archivo **`data.js`**.
+<br />
 
-1. Importa tu controlador **`getCharById`**.
+### **👩‍💻 EJERCICIO 2 | APP**
 
-2. Crea un condicional que pregunte si la **url** incluye el string "**`/rickandmorty/character`**". En el caso de que si lo incluya deberás ejecutar el controlador que creamos en el ejercicio anterior pasándole como argumentos:
+Dirígete a tu archivo **`App.js`** y modifica:
 
-   -  El primer parámetro debe ser parámetro **`res`**.
-   -  El segundo parámetro debe ser el **id** del personaje que recibes mediante la como parámetro.
+1. La función **`onSearch`** de modo tal que utilices **async/await** y no promesas.
 
-   > **[NOTA]:** dentro del parámetro **`req.url`** está el id del personaje.
+2. La función **`login`** de modo tal que utilices **async/await** y no promesas.
+
+3. Para manejar correctamente el error envuelve el contenido de ambas funciones en un **try-catch**.
+
+<br />
+
+---
+
+### **👩‍💻 EJERCICIO 3 | ACTIONS**
+
+Dirígete a tu archivo **`/redux/actions.js`** y modifica:
+
+1. La función **`addFav`** de modo tal que utilices **async/await** y no promesas.
+
+2. La función **`removeFav`** de modo tal que utilices **async/await** y no promesas.
+
+3. Para manejar correctamente el error envuelve el contenido de ambas funciones en un **try-catch**.
+
+<br />
+
+---
+
+<br />
+
+> [**NOTA**]: no modificaremos el archivo **`Detail.jsx`** porque suele ser más conveniente utilizar promesas en los **useEffect** que utilizar async/await.
 
 <br />
 
@@ -65,6 +86,9 @@ Dirígete al archivo **`index.js`** y elimina el condicional que creaste en la h
 
 ### **👀 COMPROBEMOS...**
 
-Levanta tu proyecto del lado Front-End y Back-End. Hasta este momento deberías poder utilizar tu aplicación con normalidad y poder buscar un personaje con cualquier **id**.
+Levanta el servidor y tu proyecto Front-End. Revisa que todo aún funcione correctamente:
 
-<img src="./img/example.gif" alt="" />
+1. Que puedas traer cualquier personaje por su **id** desde la Search Bar.
+2. Que puedas ingresar al detalle de cualquier personaje que hayas encontrado.
+3. Que puedas agregar todos los personajes que quieras a tus favoritos.
+4. Que puedas eliminar a todos los personajes que quieras de tus favoritos.
