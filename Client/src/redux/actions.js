@@ -1,6 +1,6 @@
 import axios from "axios";
-const url = "http://localhost:3001/rickandmorty/character/";
-//const url = "https://rickandmortyapi.com/api/character/";
+//const url = "http://localhost:3001/rickandmorty/character/";
+const url = "https://rickandmortyapi.com/api/character/";
 
 export function addFav(personaje) {
   const endpoint = "http://localhost:3001/rickandmorty/fav";
@@ -11,7 +11,7 @@ export function addFav(personaje) {
         type: "ADD_FAV",
         payload: data,
       });
-    } catch (error) {}
+    } catch (error) { }
   };
 }
 
@@ -24,7 +24,7 @@ export function removeFav(id) {
         type: "REMOVE_FAV",
         payload: data,
       });
-    } catch (error) {}
+    } catch (error) { }
   };
 }
 
@@ -51,7 +51,7 @@ export function getCharacter(id) {
           type: "GET_CHARACTER",
           payload: data,
         });
-    } catch (error) {}
+    } catch (error) { }
   };
 }
 
